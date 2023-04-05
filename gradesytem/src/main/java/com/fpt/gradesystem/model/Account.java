@@ -27,7 +27,11 @@ import lombok.ToString;
 @Entity
 @Table(name = "Account")
 public class Account  implements Serializable{
+    //Serializable: Khi gửi dữ liệu ra môi trường internet, nó sẽ thực hiện hành động là 
+    //serialize đồng bộ dữ liệu ra ngoài; còn khi trở về hệ thống nó sẽ deserialize để chuyển 
+    //thành dạng dữ liệu trên máy xử lí được 
     @Id
     private String username;
     private String password;
+    
 }

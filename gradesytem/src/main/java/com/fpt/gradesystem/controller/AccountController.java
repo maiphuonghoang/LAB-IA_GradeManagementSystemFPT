@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,15 +24,12 @@ public class AccountController {
     @Autowired
     AccountRepository a;
 
-//    @RequestMapping("/accounts")
-//    public List<Account> getAccount() {
-//        List<Account> l = a.findAll();
-//        return l;
-//
-//    }
-    @RequestMapping("/")
-    public String hello() {
-        return "new";
+    @RequestMapping("/accounts")
+    public String getAccount(ModelMap model) {
+        List<Account> l = a.findAll();
+        model.addAttribute("list", l);
+        return ("new");
+
     }
 
 }

@@ -13,4 +13,5 @@
 
 <html>
     <h2>hjvbjvjbjvbv</h2>
+    ${list.size()}
 </html>

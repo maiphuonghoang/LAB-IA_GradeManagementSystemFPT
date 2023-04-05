@@ -66,6 +66,7 @@ CREATE TABLE Course
 (
 	courseId varchar(10) NOT NULL,
 	courseName nvarchar(100),
+    termNo int,
 	CONSTRAINT PK_Course PRIMARY KEY (courseId)
  );
 
@@ -196,6 +197,11 @@ SELECT * FROM Feature;
 
 --	Thứ tự xóa bảng
 */
+
+
+-- SELECT * FROM Student s join Participate p on s.studentId = p.studentId
+-- join `Group` g on p.groupId = g.groupId WHERE s.studentId = 'HE171073'
+
 
 
 
