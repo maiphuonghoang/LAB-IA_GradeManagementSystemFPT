@@ -94,18 +94,31 @@ ALTER TABLE Student ADD CONSTRAINT FK_Student_Curriculum FOREIGN KEY(curriculumI
 REFERENCES Curriculum (curriculumId);
 
 
+CREATE TABLE Semester (
+	semesterId varchar(50),
+	semesterName varchar(50),
+	`year` int,
+	startDate date,
+	endDate date,
+	CONSTRAINT PK_Semester PRIMARY KEY (semesterId)
+);
+
+
 CREATE TABLE `Group`
 (
 	groupId int NOT NULL,
 	groupName varchar(20) NULL,
 	courseId varchar(10) NULL,
 	instructorId varchar(20) NULL,
+    semesterId varchar(50),
 	CONSTRAINT PK_Group PRIMARY KEY (groupId)
 );
 ALTER TABLE `Group` ADD CONSTRAINT FK_Group_Course FOREIGN KEY(courseId)
 REFERENCES Course (courseId);
 ALTER TABLE `Group` ADD CONSTRAINT FK_Group_Instructor FOREIGN KEY(instructorId)
 REFERENCES Instructor (instructorId);
+ALTER TABLE `Group`  ADD CONSTRAINT FK_Group_Semester FOREIGN KEY(semesterId)
+REFERENCES Semester (semesterId);
 
 
  CREATE TABLE Participate
@@ -133,25 +146,13 @@ ALTER TABLE GradeCategory ADD CONSTRAINT FK_GradeCategory_Course FOREIGN KEY(cou
 REFERENCES Course (courseId);
 
 
-CREATE TABLE Semester (
-	semesterId varchar(50),
-	semesterName varchar(50),
-	`year` int,
-	startDate date,
-	endDate date,
-	CONSTRAINT PK_Semester PRIMARY KEY (semesterId)
-);
-
 CREATE TABLE Grade 
 (
 	gradeCategoryId int,
 	studentId varchar(8) NOT NULL,
-	semesterId varchar(50),
 	gradeValue decimal(4,2),
-	CONSTRAINT PK_Grade PRIMARY KEY(studentId,gradeCategoryId, semesterId)
+	CONSTRAINT PK_Grade PRIMARY KEY(studentId,gradeCategoryId)
 );
-ALTER TABLE Grade  ADD CONSTRAINT FK_Grade_Semester FOREIGN KEY(semesterId)
-REFERENCES Semester (semesterId);
 ALTER TABLE Grade  ADD CONSTRAINT FK_Grade_Student FOREIGN KEY(studentId)
 REFERENCES Student (studentId);
 ALTER TABLE Grade  ADD CONSTRAINT FK_Grade_GradeCategory FOREIGN KEY(gradeCategoryId)
