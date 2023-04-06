@@ -6,6 +6,7 @@ package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -23,14 +24,19 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "Feature")
-public class Feature implements Serializable{
+public class Feature implements Serializable {
+
     @Id
+    @Column (name = "featureId")
     private int featureId;
+    
+    @Column
     private String featureName;
+    
+    @Column
     private String url;
-    
-    @ManyToMany(mappedBy = "features")
-    private List<Role> roles; 
-    
-    
+
+    @ManyToMany(targetEntity = Role.class, mappedBy = "features")
+    private List<Role> roles;
+
 }

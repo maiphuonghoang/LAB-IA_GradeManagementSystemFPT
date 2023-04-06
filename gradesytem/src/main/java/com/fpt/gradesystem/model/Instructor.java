@@ -5,6 +5,7 @@
 package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,12 +29,14 @@ import lombok.ToString;
 public class Instructor implements Serializable {
 
     @Id
+    @Column(name = "instructorId")
     private String instructorId;
+    
+    @Column
     private String instructorName;
 
     @OneToOne
     @JoinColumn(name = "accountId", referencedColumnName = "username")
     private Account account;
-
 
 }

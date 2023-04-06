@@ -6,7 +6,9 @@ package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -32,20 +34,21 @@ public class Account implements Serializable {
     //serialize đồng bộ dữ liệu ra ngoài; còn khi trở về hệ thống nó sẽ deserialize để chuyển 
     //thành dạng dữ liệu trên máy xử lí được 
     @Id
+    @Column(name = "username")
     private String username;
+    @Column
     private String password;
 
-    @OneToOne(mappedBy = "account")
+    @OneToOne(targetEntity = Student.class, mappedBy = "account")
     private Student student;
 
-    @OneToOne(mappedBy = "account")
+    @OneToOne(targetEntity = Instructor.class, mappedBy = "account")
     private Instructor instructor;
-
-
-    @ManyToMany
+    
+    @ManyToMany(targetEntity = Role.class)
     @JoinTable(name = "Account_Role",
-            joinColumns = @JoinColumn(name = "accountId"),
-            inverseJoinColumns = @JoinColumn(name = "roleId")
+            joinColumns = {@JoinColumn(name = "username")},
+            inverseJoinColumns = {@JoinColumn(name = "roleId")}
     )
     private List<Role> roles;
 }

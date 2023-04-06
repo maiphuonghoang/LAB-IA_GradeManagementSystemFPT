@@ -6,6 +6,7 @@ package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,19 +29,23 @@ import lombok.ToString;
 @Builder
 @Entity
 @Table(name = "Curriculum")
-public class Curriculum implements Serializable{
+public class Curriculum implements Serializable {
+
     @Id
+    @Column(name = "curriculumId")
     private String curriculumId;
+    
+    @Column
     private String curriculumName;
-    
-    @OneToMany(mappedBy = "curriculum") 
+
+    @OneToMany(mappedBy = "curriculum")
     private List<Student> students;
-    
-    @ManyToMany
+
+    @ManyToMany(targetEntity = Course.class)
     @JoinTable(name = "Curriculum_Course",
             joinColumns = @JoinColumn(name = "curriculumId"),
             inverseJoinColumns = @JoinColumn(name = "courseId")
     )
     private List<Course> courses;
-    
+
 }

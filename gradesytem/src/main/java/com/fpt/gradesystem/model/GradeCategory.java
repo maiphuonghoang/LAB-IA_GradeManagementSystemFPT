@@ -5,10 +5,13 @@
 package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,15 +28,27 @@ import lombok.ToString;
 @Builder
 @Entity
 @Table(name = "GradeCategory")
-public class GradeCategory implements Serializable{
+public class GradeCategory implements Serializable {
+
     @Id
-    private String gradeCategoryId;
+    @Column(name = "gradeCategoryId")
+
+    private int gradeCategoryId;
+    @Column
+
     private String gradeCategoryName;
+    @Column
+
     private String gradeItemName;
-    private Double weight;
-    
+    @Column
+
+    private double weight;
+
     @ManyToOne
     @JoinColumn(name = "courseId")
     private Course course;
-            
+
+    @OneToMany(mappedBy = "gradeCategory")
+    private List<Grade> grades;
+
 }

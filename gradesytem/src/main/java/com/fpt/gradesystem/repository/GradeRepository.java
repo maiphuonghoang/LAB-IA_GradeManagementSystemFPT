@@ -4,14 +4,14 @@
  */
 package com.fpt.gradesystem.repository;
 
-import com.fpt.gradesystem.model.Account;
+import com.fpt.gradesystem.model.Grade;
+import com.fpt.gradesystem.modelkey.GradeKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author ADMIN
  */
-//@Repository
-public interface AccountRepository extends JpaRepository<Account, String> {
-
+public interface GradeRepository extends JpaRepository<Grade, GradeKey>{
+    
 }

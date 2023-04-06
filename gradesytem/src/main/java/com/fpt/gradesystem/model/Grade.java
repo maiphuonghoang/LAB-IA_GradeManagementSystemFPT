@@ -4,11 +4,14 @@
  */
 package com.fpt.gradesystem.model;
 
+import com.fpt.gradesystem.modelkey.GradeKey;
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,14 +29,19 @@ import lombok.ToString;
 @Entity
 @Table(name = "Grade")
 public class Grade implements Serializable{
-    @Id
+    @EmbeddedId
+    private GradeKey gradeId;
+    
     @ManyToOne
+    @MapsId("studentId")
     @JoinColumn(name = "studentId")
     private Student student;
     
     @ManyToOne
+    @MapsId("gradeCategoryId")
     @JoinColumn(name = "gradeCategoryId")
     private GradeCategory gradeCategory;
     
-    private Double gradeValue;
+    @Column
+    private double gradeValue;
 }

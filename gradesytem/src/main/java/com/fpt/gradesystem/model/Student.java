@@ -6,7 +6,9 @@ package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -29,11 +31,14 @@ import lombok.ToString;
 @ToString
 @Builder
 @Entity
-@Table(name = "Student")
+@Table(name = "`Student`")
 public class Student implements Serializable {
 
     @Id
+    @Column(name = "studentId")
     private String studentId;
+
+    @Column
     private String studentName;
 
     @OneToOne
@@ -44,7 +49,7 @@ public class Student implements Serializable {
     @JoinColumn(name = "curriculumId")
     private Curriculum curriculum;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(targetEntity = Grade.class, mappedBy = "student")
     private List<Grade> grades;
 
     @ManyToMany

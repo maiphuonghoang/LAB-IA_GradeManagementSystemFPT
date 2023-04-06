@@ -7,6 +7,7 @@ package com.fpt.gradesystem.model;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -27,17 +28,26 @@ import lombok.ToString;
 @Builder
 @Entity
 @Table(name = "Semester")
-public class Semester implements Serializable{
+public class Semester implements Serializable {
+
     @Id
+    @Column(name = "semesterId")
     private String semesterId;
+   
+    @Column
     private String semesterName;
-    private int year;
-    private Date startDate;
-    private Date endDate;
     
+    @Column
+    private int year;
+    
+    @Column
+    private Date startDate;
+    
+    @Column
+    private Date endDate;
+
     @OneToMany
     @JoinColumn(name = "semesterId")
     private List<Group> groups;
-            
-    
+
 }

@@ -6,6 +6,7 @@ package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -25,18 +26,25 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "Role")
-public class Role implements Serializable{
+public class Role implements Serializable {
+
     @Id
+    @Column(name = "roleId")
+
     private int roleId;
+    @Column
+
     private String roleName;
-    
+
     @ManyToMany(mappedBy = "roles")
     private List<Account> accounts;
-    
-    @ManyToMany
+
+    @ManyToMany(targetEntity = Feature.class)
     @JoinTable(name = "Role_Feature",
-            joinColumns = {@JoinColumn(name = "roleId")},
-            inverseJoinColumns = {@JoinColumn(name = "featureId")}
+            joinColumns = {
+                @JoinColumn(name = "roleId")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "featureId")}
     )
-    private List<Feature> features; 
+    private List<Feature> features;
 }
