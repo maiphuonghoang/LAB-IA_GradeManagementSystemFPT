@@ -35,6 +35,7 @@ public class Course implements Serializable{
     private int termNo;
     
     @ManyToMany(mappedBy = "courses")
+    private List<Curriculum> curriculum;
     
     @OneToMany(mappedBy = "course")
     private List<Group> groups;

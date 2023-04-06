@@ -5,8 +5,12 @@
 package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +27,16 @@ import lombok.ToString;
 @Table(name = "Role")
 public class Role implements Serializable{
     @Id
-    private String roleId;
+    private int roleId;
+    private String roleName;
     
+    @ManyToMany(mappedBy = "roles")
+    private List<Account> accounts;
     
+    @ManyToMany
+    @JoinTable(name = "Role_Feature",
+            joinColumns = {@JoinColumn(name = "roleId")},
+            inverseJoinColumns = {@JoinColumn(name = "featureId")}
+    )
+    private List<Feature> features; 
 }

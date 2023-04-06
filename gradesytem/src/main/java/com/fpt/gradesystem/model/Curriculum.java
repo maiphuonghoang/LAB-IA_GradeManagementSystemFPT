@@ -27,8 +27,8 @@ import lombok.ToString;
 @ToString
 @Builder
 @Entity
-@Table(name = "Curiculum")
-public class Curiculum implements Serializable{
+@Table(name = "Curriculum")
+public class Curriculum implements Serializable{
     @Id
     private String curriculumId;
     private String curriculumName;
@@ -37,7 +37,7 @@ public class Curiculum implements Serializable{
     private List<Student> students;
     
     @ManyToMany
-    @JoinTable(name = "Curiculum_Course",
+    @JoinTable(name = "Curriculum_Course",
             joinColumns = @JoinColumn(name = "curriculumId"),
             inverseJoinColumns = @JoinColumn(name = "courseId")
     )

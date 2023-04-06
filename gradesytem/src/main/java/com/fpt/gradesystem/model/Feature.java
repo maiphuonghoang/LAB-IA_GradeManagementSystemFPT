@@ -5,8 +5,10 @@
 package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +26,11 @@ import lombok.ToString;
 public class Feature implements Serializable{
     @Id
     private int featureId;
+    private String featureName;
+    private String url;
+    
+    @ManyToMany(mappedBy = "features")
+    private List<Role> roles; 
+    
     
 }
