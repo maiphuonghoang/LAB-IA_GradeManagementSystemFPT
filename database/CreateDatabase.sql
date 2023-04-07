@@ -66,6 +66,7 @@ CREATE TABLE Course
 (
 	courseId varchar(10) NOT NULL,
 	courseName nvarchar(100),
+    noCredit int DEFAULT 3,
     termNo int,
 	CONSTRAINT PK_Course PRIMARY KEY (courseId)
  );
@@ -201,6 +202,9 @@ SELECT * FROM Feature;
 
 -- SELECT * FROM Student s join Participate p on s.studentId = p.studentId
 -- join `Group` g on p.groupId = g.groupId WHERE s.studentId = 'HE171073'
+
+select * from 
+        `student` s join grade g on s.studentId = g.studentId where s.studentId = 'HE171073'
 
 
 

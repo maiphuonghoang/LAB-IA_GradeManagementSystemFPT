@@ -12,11 +12,39 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>JSP Page</title>
     </head>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+    </style>
     <body>
 
-        <c:forEach items="${j}" var="">
-            ${g.student.studentId}
-            ${g.gradeValue}
-        </c:forEach>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>SubjectCode</th>
+                    <th>SubjectName</th>
+                    <th>TermNo</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${curriculum.curriculumId} ${curriculum.curriculumName} 
+                <c:forEach items="${courses}" var="c" varStatus="index">
+                    <tr>
+                        <td>${index.index+1}</td>
+                        <td>${c.courseId}</td>
+                        <td>${c.courseName}</td>
+                        <td>${c.termNo}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </body>
 </html>
