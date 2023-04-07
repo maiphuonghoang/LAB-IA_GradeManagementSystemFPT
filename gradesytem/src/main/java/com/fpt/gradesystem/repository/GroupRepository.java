@@ -6,6 +6,7 @@ package com.fpt.gradesystem.repository;
 
 import com.fpt.gradesystem.model.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  *

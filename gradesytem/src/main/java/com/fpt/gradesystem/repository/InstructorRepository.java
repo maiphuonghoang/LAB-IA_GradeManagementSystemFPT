@@ -6,6 +6,7 @@ package com.fpt.gradesystem.repository;
 
 import com.fpt.gradesystem.model.Instructor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  *

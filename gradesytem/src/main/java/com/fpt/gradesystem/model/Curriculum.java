@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -15,7 +16,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,17 +25,14 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+//@ToString
 @Entity
 @Table(name = "Curriculum")
 public class Curriculum implements Serializable {
 
     @Id
-    @Column(name = "curriculumId")
     private String curriculumId;
     
-    @Column
     private String curriculumName;
 
     @OneToMany(mappedBy = "curriculum")

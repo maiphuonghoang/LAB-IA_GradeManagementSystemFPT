@@ -27,13 +27,13 @@ import lombok.ToString;
 public class Feature implements Serializable {
 
     @Id
-    @Column (name = "featureId")
+//    @Column (name = "featureId")
     private int featureId;
     
-    @Column
+//    @Column
     private String featureName;
     
-    @Column
+//    @Column
     private String url;
 
     @ManyToMany(targetEntity = Role.class, mappedBy = "features")

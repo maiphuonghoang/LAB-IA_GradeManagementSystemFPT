@@ -24,26 +24,18 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 @Builder
 @Entity
 @Table(name = "Semester")
 public class Semester implements Serializable {
 
     @Id
-    @Column(name = "semesterId")
+//    @Column(name = "semesterId")
     private String semesterId;
-   
-    @Column
     private String semesterName;
-    
-    @Column
     private int year;
-    
-    @Column
     private Date startDate;
-    
-    @Column
     private Date endDate;
 
     @OneToMany

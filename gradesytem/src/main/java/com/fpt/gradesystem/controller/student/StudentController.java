@@ -4,10 +4,14 @@
  */
 package com.fpt.gradesystem.controller.student;
 
+import com.fpt.gradesystem.model.Grade;
 import com.fpt.gradesystem.model.Student;
+import com.fpt.gradesystem.repository.CurriculumRepository;
+import com.fpt.gradesystem.repository.GradeRepository;
 import com.fpt.gradesystem.repository.StudentRepository;
 import java.util.List;
 import java.util.Optional;
+import org.apache.taglibs.standard.lang.jstl.GreaterThanOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -23,24 +27,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 //@RestController
 @Controller
+@RequestMapping("/student")
 public class StudentController {
 
+//    @Autowired
+//    StudentRepository studentRepository;
+//    @Autowired
+//    GradeRepository gradeRepository;
     @Autowired
-    StudentRepository studentRepository;
-
-//    @RequestMapping("/student")
-//    public List<Student> getStudents() {
-//        return studentRepository.findAll();
+    CurriculumRepository curriculumRepository;
+//
+//    @GetMapping("/curriculum")
+//    public String getStudents(ModelMap m) {
+//        Iterable<Student> curriculum = studentRepository.findAll();
+//        m.addAttribute("curriculum", curriculum);
+//        return "login/login";
 //    }
-//    @GetMapping("student/{studentId}")
-//    public Optional<Student> getStudentById(@PathVariable String studentId) {
-//        return studentRepository.findById(studentId);
+//    @RequestMapping("/test")
+//    public String getAllStudents(){
+//        curriculumRepository.findAll().forEach(System.out::println);
+//        return "hello";
 //    }
-    @RequestMapping("/student")
-    public String getStudents(ModelMap m) {
-        List<Student> students = studentRepository.findAll();
-        m.addAttribute("students", students);
-        return "login/login";
-    }
 
+    
 }

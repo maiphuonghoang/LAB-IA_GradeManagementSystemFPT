@@ -6,11 +6,11 @@ package com.fpt.gradesystem.repository;
 
 import com.fpt.gradesystem.model.Curriculum;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author ADMIN
  */
 public interface CurriculumRepository extends JpaRepository<Curriculum, String>{
-    
 }

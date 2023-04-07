@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,17 +23,14 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+//@ToString
 @Entity
 @Table(name = "`Group`")
 public class Group implements Serializable{
     @Id
-        @Column(name = "groupId")
+//        @Column(name = "groupId")
 
     private int groupId;
-        @Column
-
     private String groupName;
     
     @ManyToOne

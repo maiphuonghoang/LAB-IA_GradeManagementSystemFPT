@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,23 +23,16 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+//@ToString
 @Entity
 @Table(name = "Course")
 public class Course implements Serializable {
 
     @Id
-    @Column(name = "courseId")
-
+//    @Column(name = "courseId")
     private String courseId;
-    @Column
     private String courseName;
-    
-    @Column
     private int noCredit;
-    
-    @Column
     private int termNo;
 
     @ManyToMany(targetEntity = Curriculum.class, mappedBy = "courses")

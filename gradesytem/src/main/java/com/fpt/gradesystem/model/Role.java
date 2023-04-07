@@ -23,17 +23,14 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 @Entity
 @Table(name = "Role")
 public class Role implements Serializable {
 
     @Id
-    @Column(name = "roleId")
-
+//    @Column(name = "roleId")
     private int roleId;
-    @Column
-
     private String roleName;
 
     @ManyToMany(mappedBy = "roles")

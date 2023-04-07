@@ -6,9 +6,7 @@ package com.fpt.gradesystem.model;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,13 +17,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 @Entity
 @Table(name = "Account")
 public class Account implements Serializable {
@@ -34,9 +31,7 @@ public class Account implements Serializable {
     //serialize đồng bộ dữ liệu ra ngoài; còn khi trở về hệ thống nó sẽ deserialize để chuyển 
     //thành dạng dữ liệu trên máy xử lí được 
     @Id
-    @Column(name = "username")
     private String username;
-    @Column
     private String password;
 
     @OneToOne(targetEntity = Student.class, mappedBy = "account")

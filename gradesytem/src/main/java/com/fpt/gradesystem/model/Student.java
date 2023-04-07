@@ -18,7 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,17 +27,14 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+//@ToString
 @Entity
 @Table(name = "`Student`")
 public class Student implements Serializable {
 
     @Id
-    @Column(name = "studentId")
     private String studentId;
 
-    @Column
     private String studentName;
 
     @OneToOne

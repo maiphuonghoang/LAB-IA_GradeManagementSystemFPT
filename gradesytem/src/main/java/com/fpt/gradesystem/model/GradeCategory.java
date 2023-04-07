@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,24 +23,16 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+//@ToString
 @Entity
 @Table(name = "GradeCategory")
 public class GradeCategory implements Serializable {
 
     @Id
-    @Column(name = "gradeCategoryId")
-
+//    @Column(name = "gradeCategoryId")
     private int gradeCategoryId;
-    @Column
-
     private String gradeCategoryName;
-    @Column
-
     private String gradeItemName;
-    @Column
-
     private double weight;
 
     @ManyToOne

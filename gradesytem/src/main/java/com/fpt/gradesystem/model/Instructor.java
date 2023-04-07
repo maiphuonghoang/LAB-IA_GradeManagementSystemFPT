@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,17 +21,14 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
+//@ToString
 @Entity
 @Table(name = "Instructor")
 public class Instructor implements Serializable {
 
     @Id
-    @Column(name = "instructorId")
+//    @Column(name = "instructorId")
     private String instructorId;
-    
-    @Column
     private String instructorName;
 
     @OneToOne
