@@ -10,6 +10,7 @@ import com.fpt.gradesystem.repository.AccountRepository;
 import com.fpt.gradesystem.repository.CourseRepository;
 import com.fpt.gradesystem.repository.CurriculumRepository;
 import com.fpt.gradesystem.repository.GradeRepository;
+import com.fpt.gradesystem.repository.SemesterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,8 @@ public class TestRunner implements CommandLineRunner {
     GradeRepository gradeRepository;
     @Autowired
     CourseRepository courseRepository;
+    @Autowired
+    SemesterRepository semesterRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -40,16 +43,19 @@ public class TestRunner implements CommandLineRunner {
 //                g.getGradeCategory().getGradeCategoryName() + " " + g.getGradeCategory().getGradeItemName() + " " + g.getGradeValue())
 //        );
 
-        courseRepository.getCourseByStudentId("HE171073").forEach(c -> {
-            System.out.println(c.getCourseId() + " " + c.getCourseName() + " " + c.getNoCredit() + " " + c.getTermNo());        
-        });
-        
-        curriculumRepository.getCurriculumByStudentId("HE171073").getCurriculumId();
-        
+//        courseRepository.getCourseByStudentId("HE171073").forEach(c -> {
+//            System.out.println(c.getCourseId() + " " + c.getCourseName() + " " + c.getNoCredit() + " " + c.getTermNo());        
+//        });
+//        curriculumRepository.getCurriculumByStudentId("HE171073").getCurriculumId();
+//        
         gradeRepository.getGradeByStudentIdCourseIdSemesterId("HE171073", "PRJ301", "SP2023").forEach(g -> System.out.println(
                 g.getGradeCategory().getGradeCategoryName() + " " + g.getGradeCategory().getGradeItemName() + " " + g.getGradeValue())
         );
+        semesterRepository.findAll().forEach(s -> System.out.println(s.getSemesterId()));
 
+        courseRepository.getCourseByStudentIdSemesterId("HE171073", "SP2023").forEach(c -> {
+            System.out.println("CourseId: " + c.getCourseId() + " CourseName: " + c.getCourseName());
+        });
     }
 
 }

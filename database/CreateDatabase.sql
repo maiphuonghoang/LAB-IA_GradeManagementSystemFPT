@@ -204,7 +204,64 @@ SELECT * FROM Feature;
 -- join `Group` g on p.groupId = g.groupId WHERE s.studentId = 'HE171073'
 
 select * from 
-        `student` s join grade g on s.studentId = g.studentId where s.studentId = 'HE171073'
+        `student` s join grade g on s.studentId = g.studentId where s.studentId = 'HE171073';
+        
+        
+            
+    select  * 
+    from
+        Course c
+    inner join
+        Curriculum_Course cc
+            on c.courseId=cc.courseId 
+    inner join
+        Curriculum cu
+            on cu.curriculumId=cu.curriculumId 
+    inner join
+        `Student` s
+            on cu.curriculumId=s.curriculumId 
+    inner join
+        Participate p
+            on p.studentId=s.studentId 
+    inner join
+        `Group` g
+        on p.groupId=g.groupId inner join
+            Semester ses
+                on ses.semesterId=g.semesterId 
+        where
+            s.studentId='HE171073'
+            and g.semesterId='SP2023'
+            and c.courseId = g.courseId
+            
+            
+
+    select
+        course0_.courseId as courseid1_4_,
+        course0_.courseName as coursena2_4_,
+        course0_.noCredit as nocredit3_4_,
+        course0_.termNo as termno4_4_ 
+    from
+        Course course0_ 
+    inner join
+        Curriculum_Course curriculum1_ 
+            on course0_.courseId=curriculum1_.courseId 
+    inner join
+        Curriculum curriculum2_ 
+            on curriculum1_.curriculumId=curriculum2_.curriculumId 
+    inner join
+        `Student` students3_ 
+            on curriculum2_.curriculumId=students3_.curriculumId 
+    inner join
+        Participate groups4_ 
+            on students3_.studentId=groups4_.studentId 
+    inner join
+        `Group` group5_ 
+        on groups4_.groupId=group5_.groupId inner join
+            Semester semester6_ 
+                on group5_.semesterId=semester6_.semesterId 
+        where
+            students3_.studentId='HE171073' 
+            and semester6_.semesterId='SP2023'
 
 
 
