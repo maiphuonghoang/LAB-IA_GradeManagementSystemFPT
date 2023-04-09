@@ -58,6 +58,41 @@ public class StudentController {
         List<Semester> semesters = semesterRepository.findAll();
         List<Course> courses = courseRepository.getCourseByStudentIdSemesterId(studentId, semesterId);
         List<Grade> grades = gradeRepository.getGradeByStudentIdCourseIdSemesterId(studentId, courseId, semesterId);
+        double sum = 0;
+        double feValue = -1;
+        
+        //Nếu chưa thi fe thì chưa tính điểm tổng: chưa xử lí 
+
+        //Total bằng trung bình tổng các điểm thành phần 
+        for (Grade g : grades) {
+            if (g.getGradeCategory().getGradeItemName().equals("Total")) {
+                double totalWeight = 0;
+                double totalValue = 0;
+                String category = g.getGradeCategory().getGradeCategoryName();
+                for (Grade subGrade : grades) {
+                    if (subGrade.getGradeCategory().getGradeCategoryName().equals(category) && !subGrade.getGradeCategory().getGradeItemName().equals("Total")) {
+                        totalWeight += subGrade.getGradeCategory().getWeight();
+                        totalValue += subGrade.getGradeCategory().getWeight() * subGrade.getGradeValue();
+                    }
+                }
+                double accurateValue = totalValue / totalWeight;
+                g.setGradeValue(Math.round(accurateValue * 10.0) / 10.0 );
+     
+                sum += g.getGradeValue() * g.getGradeCategory().getWeight();
+
+                //nếu thi lại 
+                if (g.getGradeCategory().getGradeCategoryName().equalsIgnoreCase("Final Exam")) {
+                    feValue = g.getGradeValue() * g.getGradeCategory().getWeight();
+                }
+                if (g.getGradeCategory().getGradeCategoryName().equalsIgnoreCase("Final Exam Resit")
+                        && g.getGradeValue() > 0) {
+                    sum = sum - feValue;
+                }
+
+            }
+        }
+
+        m.addAttribute("sum", sum/100);
         m.addAttribute("semesters", semesters);
         m.addAttribute("courses", courses);
         m.addAttribute("grades", grades);

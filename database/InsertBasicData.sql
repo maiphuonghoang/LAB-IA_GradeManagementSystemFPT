@@ -837,14 +837,14 @@ INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemN
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('212', 'Final Exam', 'Total', '35', 'MAS291');
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('213', 'Final Exam Resit', 'Final Exam Resit', '35', 'MAS291');
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('214', 'Final Exam Resit', 'Total', '35', 'MAS291');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('215', 'Progress test', 'Progress test 1', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('216', 'Progress test', 'Total', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('217', 'Progress test', 'Progress test 2', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('218', 'Progress test', 'Total', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('219', 'Workshop', 'Total', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('220', 'Workshop', 'Workshop 1', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('221', 'Workshop', 'Total', '5', 'PRJ301');
-INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('222', 'Workshop', 'Workshop 2', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('215', 'Progress test 1', 'Progress test 1', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('216', 'Progress test 1', 'Total', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('217', 'Progress test 2', 'Progress test 2', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('218', 'Progress test 2', 'Total', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('220', 'Workshop 1', 'Workshop 1', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('219', 'Workshop 1', 'Total', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('222', 'Workshop 2', 'Workshop 2', '5', 'PRJ301');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('221', 'Workshop 2', 'Total', '5', 'PRJ301');
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('223', 'Practical Exam', 'Practical Exam', '20', 'PRJ301');
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('224', 'Practical Exam', 'Total', '20', 'PRJ301');
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('225', 'Assignment', 'Assignment', '40', 'PRJ301');
@@ -867,6 +867,14 @@ INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemN
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('242', 'Final Exam Resit', 'Final Exam Resit', '40', 'IOT102');
 INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('243', 'Final Exam Resit', 'Total', '40', 'IOT102');
 
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('244', 'Lab 1', 'Lab1', '30', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('245', 'Lab 1', 'Total', '30', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('246', 'Lab 2', 'Lab2', '30', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('247', 'Lab 1', 'Total', '30', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('248', 'Final Exam', 'Final Exam', '40', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('249', 'Final Exam', 'Total', '40', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('250', 'Final Exam Resit', 'Final Exam Resit', '40', 'SWE201c');
+INSERT INTO `GradeCategory` (`gradeCategoryId`, `gradeCategoryName`, `gradeItemName`, `weight`, `courseId`) VALUES ('251', 'Final Exam Resit', 'Total', '40', 'SWE201c');
 -- All Participated Group of a student
  
 INSERT INTO Participate (studentId, groupId) VALUES ('HE150057', 20);

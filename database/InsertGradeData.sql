@@ -4737,7 +4737,7 @@ INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('118'
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('119', 'HE171073', '4');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('120', 'HE171073', '8');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('121', 'HE171073', '8');
-INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('122', 'HE171073', '5');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('122', 'HE171073', '0');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('123', 'HE171073', '7');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('124', 'HE171073', '2');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('125', 'HE171073', '2');
@@ -4828,16 +4828,16 @@ INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('209'
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('210', 'HE171073', '10');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('211', 'HE171073', '4');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('212', 'HE171073', '5');
-INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('213', 'HE171073', '2');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('213', 'HE171073', '0');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('214', 'HE171073', '8');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('215', 'HE171073', '2');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('216', 'HE171073', '9');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('217', 'HE171073', '9');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('218', 'HE171073', '9');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('219', 'HE171073', '5');
-INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('220', 'HE171073', '7');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('220', 'HE171073', '10');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('221', 'HE171073', '6');
-INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('222', 'HE171073', '8');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('222', 'HE171073', '0');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('223', 'HE171073', '2');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('224', 'HE171073', '3');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('225', 'HE171073', '10');
@@ -7775,3 +7775,14 @@ INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('240'
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('241', 'SE04495', '2');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('242', 'SE04495', '4');
 INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('243', 'SE04495', '8');
+
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('244', 'HE171073', '6');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('245', 'HE171073', '6');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('246', 'HE171073', '8');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('247', 'HE171073', '8');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('248', 'HE171073', '-1');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('249', 'HE171073', '-1');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('250', 'HE171073', '-1');
+INSERT INTO `Grade` (`gradeCategoryId`, `studentId`, `gradeValue`) VALUES ('251', 'HE171073', '-1');
+
+
