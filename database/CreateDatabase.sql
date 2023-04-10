@@ -229,7 +229,22 @@ SELECT * FROM Feature;
             and g.semesterId='SP2023'
             and c.courseId = g.courseId
 */
+select c.*, g.groupName, ses.semesterName from course c left join `group` g on c.courseId = g.courseId
+join Semester ses on ses.semesterId = g.semesterId
+  join participate p on p.groupId = g.groupId 
+  join student s on s.studentId = p.studentId
+where s.studentId = 'HE171073'  -- order by c.termNo ASC
+UNION SELECT c.*, g.groupName, ses.semesterName FROM course c Join curriculum_course cc on c.courseId = cc.courseId
+join curriculum cu on cu.curriculumId = cc.curriculumId join student s on s.curriculumId = cu.curriculumId
+left join `Group` g on g.courseId = c.courseId
+left join Semester ses on ses.semesterId = g.semesterId
+LEFT join participate p on p.groupId = g.groupId and s.studentId = p.studentId 
+where s.studentId = 'HE171073' and g.groupId is null
 
+
+SELECT * FROM course c Join curriculum_course cc on c.courseId = cc.courseId
+join curriculum cu on cu.curriculumId = cc.curriculumId join student s on s.curriculumId = cu.curriculumId
+where s.studentId = 'HE171073' order by c.termNo
 
 
 

@@ -11,7 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author ADMIN
  */
-//public interface StudentRepository extends CrudRepository<Student, String>{
-//}
 public interface StudentRepository extends JpaRepository<Student, String>{
 }

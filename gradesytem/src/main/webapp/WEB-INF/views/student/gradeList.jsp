@@ -55,7 +55,7 @@
                                 <td>${g.gradeValue}</td>
                             </tr>
                         </c:forEach> 
-                        <c:if test="${sum<4}"><c:set var="isPass" value="false"></c:set></c:if>
+                        <c:if test="${sum<5}"><c:set var="isPass" value="false"></c:set></c:if>
                             </tbody>
 
                             <tfoot>

@@ -20,4 +20,12 @@ public interface CourseRepository extends JpaRepository<Course, String> {
 
     @Query("SELECT c FROM Course c JOIN c.curriculums cu JOIN cu.students s JOIN s.groups g JOIN g.semester ses WHERE s.studentId =:studentId and ses.semesterId = :semesterId and c.courseId = g.course.courseId")
     public List<Course> getCourseByStudentIdSemesterId(String studentId, String semesterId);
+
+    @Query(value = "select c.*, ses.semesterName from course c left join `group` g on c.courseId = g.courseId\n"
+            + "join participate p on p.groupId = g.groupId \n"
+            + "join semester ses on ses.semesterId = g.semesterId \n"
+            + "join student s on s.studentId = p.studentId\n"
+            + "where s.studentId = :studentId", nativeQuery = true)
+    public List<Object[]> getCourseAndGroup(String studentId);
+
 }
