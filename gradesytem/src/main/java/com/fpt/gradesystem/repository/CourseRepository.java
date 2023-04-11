@@ -25,7 +25,18 @@ public interface CourseRepository extends JpaRepository<Course, String> {
             + "join participate p on p.groupId = g.groupId \n"
             + "join semester ses on ses.semesterId = g.semesterId \n"
             + "join student s on s.studentId = p.studentId\n"
-            + "where s.studentId = :studentId", nativeQuery = true)
+            + "where s.studentId = :studentId order by c.termNo", nativeQuery = true)
     public List<Object[]> getCourseAndGroup(String studentId);
+
+    @Query(value = "SELECT * FROM course c Join curriculum_course cc on c.courseId = cc.courseId\n"
+            + "join curriculum cu on cu.curriculumId = cc.curriculumId join student s on s.curriculumId = cu.curriculumId\n"
+            + "where s.studentId = 'HE171073' AND c.courseId NOT IN (\n"
+            + "SELECT c.courseId from Course c join `Group` g on c.courseId = g.courseId\n"
+            + "join  participate p on p.groupId = g.groupId\n"
+            + "join Student s on s.studentId = p.studentId\n"
+            + "where s.studentId = ?1 \n"
+            + ")", nativeQuery = true)
+    public List<Course> getNotStartedCourse(String studentId);
+
 
 }

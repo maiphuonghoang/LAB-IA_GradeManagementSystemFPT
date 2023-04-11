@@ -13,7 +13,6 @@ import com.fpt.gradesystem.repository.CurriculumRepository;
 import com.fpt.gradesystem.repository.GradeRepository;
 import com.fpt.gradesystem.repository.SemesterRepository;
 import com.fpt.gradesystem.repository.StudentRepository;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -100,24 +99,26 @@ public class StudentController {
         return "student/gradeList";
     }
 
-    @RequestMapping("/academicGrade")
-    public String viewCurriculumGrade(ModelMap m) {
+    @RequestMapping("/academicGradeReport")
+    public String viewCurriculumGrade(HttpServletRequest request) {
         String studentId = "HE171073";
         List<Curriculum> curriculums = curriculumRepository.getStudentCurriculumGrade(studentId);
 
         HashMap<Object, Object> hm = new HashMap<>();
 
-        courseRepository.getCourseAndGroup("HE171073")
+        courseRepository.getCourseAndGroup(studentId)
                 .stream()
-                .forEach(ob -> hm.put(ob[0], new Object[]{ob[0], ob[1], ob[2], ob[3], ob[4], ob[3]}));
+                .forEach(ob -> hm.put(ob[0], new Object[]{ob[0], ob[1], ob[2], ob[3], ob[4], ob[3], ob[4]}));
+
         for (Object key : hm.keySet()) {
             Object[] values = (Object[]) hm.get(key);
             double sum = 0;
             double feValue = -1;
             List<com.fpt.gradesystem.model.Grade> grades = gradeRepository.getGradeTotalByStudentIdCourseId("HE171073", key.toString());
+            if (!grades.isEmpty()) {
                 for (com.fpt.gradesystem.model.Grade g : grades) {
-
                     if (g.getGradeCategory().getGradeItemName().equals("Total")) {
+
                         double totalWeight = 0;
                         double totalValue = 0;
                         String category = g.getGradeCategory().getGradeCategoryName();
@@ -140,15 +141,35 @@ public class StudentController {
                                 && g.getGradeValue() > 0) {
                             sum = sum - feValue;
                         }
+                    }
+                    values[values.length - 2] = sum / 100;
+                }
+                boolean isZero = false;
+                double finalGrade = 0;
+                for (com.fpt.gradesystem.model.Grade grade : grades) {
+                    System.out.println(grade.getGradeCategory().getGradeCategoryName() + grade.getGradeCategory().getGradeItemName() + " " + grade.getGradeValue());
+                    if (grade.getGradeCategory().getGradeCategoryName().equalsIgnoreCase("Final Exam") && grade.getGradeCategory().getGradeItemName().equalsIgnoreCase("Total")) {
+                        finalGrade = grade.getGradeValue();
+                    }
+                    if (grade.getGradeCategory().getGradeCategoryName().equalsIgnoreCase("Final Exam Resit") && grade.getGradeCategory().getGradeItemName().equalsIgnoreCase("Total")
+                            && grade.getGradeValue() > 0) {
+                        finalGrade = grade.getGradeValue();
 
                     }
 
-                    values[values.length - 1] = sum / 100;
-
+                    if ((!grade.getGradeCategory().getGradeCategoryName().equalsIgnoreCase("Final Exam Resit") || !grade.getGradeCategory().getGradeCategoryName().equalsIgnoreCase("Final Exam"))
+                            && grade.getGradeValue() == 0) {
+                        isZero = true;
+                    }
                 }
+                
+                values[values.length - 1] = (finalGrade >= 4 && !isZero && Double.parseDouble(values[values.length - 2].toString()) > 0 ? "Passed" : "Not passed");
+            } else if (key.equals("LAB211")) {
+                values[values.length - 1] = "Passed";
+            }
         }
-        m.addAttribute("hm", hm);
-
+        request.setAttribute("courses", courseRepository.getNotStartedCourse(studentId));
+        request.setAttribute("hm", hm);
         return "student/reportGrade";
     }
 
